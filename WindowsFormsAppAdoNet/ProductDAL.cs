@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data; //Veritabanı işlemi için gerekli
-using System.Data.SqlClient; //AdoNet kütüphaneleri olarak düzenleyelim
+using System.Data.SqlClient; //AdoNet kütüphaneleri
 
 namespace WindowsFormsAppAdoNet
 {
     public class ProductDAL
     {
-        SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB; database=UrunYonetimiAdoNet;integrated security= true"); //Veritabanınan bağlanmak için kullandığımız ado net sınıfıdır. Parametre olarak kendisine verilen bilgilerdeki veritabanına bağlanır.
-        void ConnectionKontrol()
+        SqlConnection connection = new SqlConnection(@"server=(localdb)\MSSQLLocalDB; database=UrunYonetimiAdoNet;integrated security= true"); //Veritabanına bağlanmak için kullandığımız ado net sınıfıdır. Parametre olarak kendisine verilen bilgilerdeki veritabanına bağlanır.
+        void ConnectionKontrol() // void =tek
         {
             if (connection.State == ConnectionState.Closed) //Eğer yukarıdaki veritabanı bağlantısı kapalıysa
             {
@@ -28,15 +28,15 @@ namespace WindowsFormsAppAdoNet
                 {
                     // Aşağıda veritabanından gelen verilerle ürün bilgilerini dolduruyoruz
                     Id = Convert.ToInt32(reader["Id"]),
-                    UrunAdi = reader["UrunAdi"].ToString(),
-                    StokMiktari = Convert.ToInt32(reader["StokMiktari"]),
-                    UrunFiyati = Convert.ToDecimal(reader["UrunFiyati"])
+                    UrunAdi1 = reader["UrunAdi"].ToString(),
+                    StokMiktari1 = Convert.ToInt32(reader["StokMiktari"]),
+                    UrunFiyati1 = Convert.ToDecimal(reader["UrunFiyati"])
                 };
-                urunListesi.Add(product); //içi doldurulan product nesnesini yukarıda oluşturduğumuz products
+                urunListesi.Add(product); //içi doldurulan product nesnesini yukarıda oluşturduğumuz products listesine ekliyoruz
             }
-            reader.Close(); //Veri okuyucuyu kapat // aşağıdakiler sondan başa doğru kapatılır
+            reader.Close(); //Veri okuyucuyu kapat // yukarıda en son açtığımızı önce kapatıyoruz
             command.Dispose(); // sql komut nesnesini kapat 
-            connection.Close(); //veritabanı bağlantısını kapat // en son iletişim kesiyoruz
+            connection.Close(); //veritabanı bağlantısını kapat // en son iletişimi kesiyoruz
             return urunListesi;
         }
         public DataTable GetAllDataTable()
@@ -54,10 +54,10 @@ namespace WindowsFormsAppAdoNet
         public int Add(Product product)
         {
             ConnectionKontrol();
-            SqlCommand command = new SqlCommand("Insert into Products (UrunAdi, UrunFiyati, StokMiktari) values (@UrunAdi, @UrunFiyati, @Stok", connection); // Sql komutu olarak bu sefer insert komutu yazık // stokta olduğu gibi birebir yazmak zorunda değiliz
-            command.Parameters.AddWithValue("@UrunAdi", product.UrunAdi);
-            command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati);
-            command.Parameters.AddWithValue("@Stok", product.StokMiktari);
+            SqlCommand command = new SqlCommand("Insert into Products (UrunAdi, UrunFiyati, StokMiktari) values (@UrunAdi, @UrunFiyati, @Stok)", connection); // Sql komutu olarak bu sefer insert komutu yazdık // stokta olduğu gibi birebir yazmak zorunda değiliz
+            command.Parameters.AddWithValue("@UrunAdi", product.UrunAdi1);
+            command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati1);
+            command.Parameters.AddWithValue("@Stok", product.StokMiktari1);
             int islemSonucu = command.ExecuteNonQuery(); // ExecuteNonQuery metodu geriye veritabanında etkilenen kayıt sayısını döner
             command.Dispose(); // sql komut nesnesini kapat 
             connection.Close(); //veritabanı bağlantısını kapat

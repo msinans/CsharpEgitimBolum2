@@ -27,9 +27,9 @@ namespace WindowsFormsAppAdoNet
         private void button1_Click(object sender, EventArgs e)
         {
             Product product = new Product(); // boş bir product nesnesi oluşturduk
-            product.StokMiktari = Convert.ToInt32(txtStokMiktari1.Text);
-            product.UrunAdi = txtUrunAdi1.Text;
-            product.UrunFiyati = Convert.ToDecimal(txtUrunFiyati1.Text);
+            product.StokMiktari1 = Convert.ToInt32(txtStokMiktari1.Text);
+            product.UrunAdi1 = txtUrunAdi1.Text;
+            product.UrunFiyati1 = Convert.ToDecimal(txtUrunFiyati1.Text);
             var islemSonucu = productDAL.Add(product); // Add metoduna product ı eklemesi için gönderdik
 
             if (islemSonucu > 0)
