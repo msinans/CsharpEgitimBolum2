@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 using System.Data; //Veritabanı işlemi için gerekli
 using System.Data.SqlClient; //AdoNet kütüphaneleri
+using System.Data.Common;
 
 namespace WindowsFormsAppAdoNet
 {
@@ -62,6 +63,56 @@ namespace WindowsFormsAppAdoNet
             command.Dispose(); // sql komut nesnesini kapat 
             connection.Close(); //veritabanı bağlantısını kapat
             return islemSonucu; // metodumuz geriye int döndüğü için islemSonucu değişkenini geri döndürüyoruz
+        }
+        public Product GetProduct(string id)
+        {
+            ConnectionKontrol();
+            SqlCommand command = new SqlCommand("select * from Products where Id = " + id, connection);
+            SqlDataReader reader = command.ExecuteReader();
+            Product product = new Product();
+
+            while(reader.Read())
+            {
+                product.Id = Convert.ToInt32(reader["Id"]);
+                product.UrunAdi1 = reader["UrunAdi"].ToString();
+                product.StokMiktari1 = Convert.ToInt32(reader["StokMiktari"]);
+                product.UrunFiyati1 = Convert.ToDecimal(reader["UrunFiyati"]);
+            }
+            reader.Close(); 
+            command.Dispose(); 
+            connection.Close(); 
+           
+            return product;
+          
+        }
+        public int Update(Product product)
+        {
+            ConnectionKontrol();
+            SqlCommand command = new SqlCommand("Update Products set UrunAdi =@UrunAdi , UrunFiyati = @UrunFiyati, StokMiktari = @Stok where Id = @UrunId ", connection); // Sql komutu olarak bu sefer insert komutu yazdık // stokta olduğu gibi birebir yazmak zorunda değiliz. 
+            command.Parameters.AddWithValue("@UrunAdi", product.UrunAdi1);
+            command.Parameters.AddWithValue("@UrunFiyati", product.UrunFiyati1);
+            command.Parameters.AddWithValue("@Stok", product.StokMiktari1);
+            command.Parameters.AddWithValue("@UrunId", product.Id);
+            int islemSonucu = command.ExecuteNonQuery(); // ExecuteNonQuery metodu geriye veritabanında etkilenen kayıt sayısını döner
+            command.Dispose(); // sql komut nesnesini kapat 
+            connection.Close(); //veritabanı bağlantısını kapat
+            return islemSonucu; // metodumuz geriye int döndüğü için islemSonucu değişkenini geri döndürüyoruz
+        }
+        public int Delete(string id)
+        {
+            ConnectionKontrol();
+            SqlCommand command = new SqlCommand("Delete from Products where Id = @UrunId", connection);
+            command.Parameters.AddWithValue("@UrunId", id);
+            int islemSonucu = command.ExecuteNonQuery();
+            command.Dispose();
+            connection.Close();
+            return islemSonucu;
+
+
+
+
+
+
         }
     }
 }
