@@ -25,6 +25,11 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtKategoriAdi.Text))
+            {
+                MessageBox.Show("Kategori Adı Boş Geçilemez");
+                return;
+            }
             try
             {
                 context.Kategoriler.Add(
@@ -53,7 +58,7 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
             var kayit = context.Kategoriler.Find(secilenKayitId);  //  EF find metodu kendisine parametreyle gönderilen id ile eşleşen kaydı veitabanından getirir
 
             txtKategoriAdi.Text = kayit.KategoriAdi;
-            cbDurum.Text = kayit.Durum.ToString();
+            cbDurum.Checked = kayit.Durum;
 
 
             btnGuncelle.Enabled = true; // bu ve alttaki buttonlar form ik açıldığında pasifti soldakileri yazmamız sayesinde bir satır seçince aktif hale gelir 
@@ -62,14 +67,19 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            try
+            if (string.IsNullOrWhiteSpace(txtKategoriAdi.Text))
+            {
+                MessageBox.Show("Kategori Adı Boş Geçilemez");
+                return;
+            }
+                try
+             
             {
                 int secilenKayitId = Convert.ToInt32(dgvKategoriler.CurrentRow.Cells[0].Value);
                 var kayit = context.Kategoriler.Find(secilenKayitId);
                 kayit.KategoriAdi = txtKategoriAdi.Text;
-                kayit.Durum = Convert.ToBoolean(cbDurum.Checked);
+                kayit.Durum = cbDurum.Checked;
                
-
                 var sonuc = context.SaveChanges();
 
                 if (sonuc > 0)
@@ -78,9 +88,9 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
                     MessageBox.Show("Kayıt Güncellendi");
                 }
             }
-            catch (Exception hata)
+            catch (Exception)
             {
-                MessageBox.Show("Hata Oluştu!" + hata.Message);
+                MessageBox.Show("Hata Oluştu!");
             }
         }
 
@@ -89,24 +99,22 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
             try
             {
                 int secilenKayitId = Convert.ToInt32(dgvKategoriler.CurrentRow.Cells[0].Value);
-                Kategoriler kayit = context.Kategoriler.Find(secilenKayitId);
-                context.Kategoriler.Remove(kayit); // context üzerindeki Products tablosundn kayıt içindeki ürünü silinecek olarak işaretle
+                var kayit = context.Kategoriler.Find(secilenKayitId);
+                context.Kategoriler.Remove(kayit);
 
-                var sonuc = context.SaveChanges(); // context üzerindeki değişiklikleri (Burada silme işlem
-                                                   // e karşılık geliyor değişiklik) veritabanına işle
-                                                   // EF de tracking denilen bir kavram var ve bu tracking EF Context üzerindeki değişiklikleri izler, takip eder, savechanges i çalıştırdığımızda db ye işler
+                var sonuc = context.SaveChanges(); 
 
-                if (sonuc > 0) // context.SaveChanges() metodu geriye veritabanında etkilenen kayıt sayısını int olarak bize döndürür. sonuc değişkene bu değeri atadık ve if ile u değer 0 dan büyük mü diye kontrol ettik. Eğer silme başarılıysa sonuç değeri 1 olacaktır, başarısız olursa 0 olacaktır
+                if (sonuc > 0) 
                 {
                     dgvKategoriler.DataSource = context.Kategoriler.ToList();
                     MessageBox.Show("Kayıt Silindi");
                 }
                 else MessageBox.Show("Kayıt Silinemedi");
             }
-            catch (Exception hata)
+            catch (Exception)
             {
 
-                MessageBox.Show("Hata Oluştu!" + hata.Message);
+                MessageBox.Show("Hata Oluştu!");
             }
         }
     }
