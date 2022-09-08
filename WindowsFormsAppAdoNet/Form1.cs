@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -41,10 +42,11 @@ namespace WindowsFormsAppAdoNet
                 }
                 else MessageBox.Show("Kayıt Başarısız");
             }
-            catch (Exception)
+            catch (Exception hata)
             {
 
-                MessageBox.Show("Hata luştu\nGeçersiz Değer Girdiniz");
+                //MessageBox.Show("Hata Oluştu!\nGeçersiz Değer Girdiniz");
+                MessageBox.Show(hata.Message);
             }
             
         }
@@ -72,8 +74,7 @@ namespace WindowsFormsAppAdoNet
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
 
-            {
-                try
+            try
                 {
                     
                     Product product = new Product(); // boş bir product nesnesi oluşturduk
@@ -90,13 +91,14 @@ namespace WindowsFormsAppAdoNet
                     }
                     else MessageBox.Show("Kayıt Başarısız");
                 }
-                catch (Exception)
+                catch (Exception hata)
                 {
 
-                    MessageBox.Show("Hata oluştu\nGeçersiz Değer Girdiniz");
-                }
-
+                //MessageBox.Show("Hata Oluştu!\nGeçersiz Değer Girdiniz!");
+                MessageBox.Show(hata.Message);
             }
+
+            
         }
 
         private void btnSil_Click(object sender, EventArgs e)
