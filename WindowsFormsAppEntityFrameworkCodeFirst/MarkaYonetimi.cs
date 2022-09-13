@@ -117,5 +117,10 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
                 MessageBox.Show("Hata Oluştu!");
             }
         }
+
+        private void txtAra_TextChanged(object sender, EventArgs e)
+        {
+            dgvMarkalar.DataSource = context.Markalar.Where(k => k.Adi.Contains(txtAra.Text)).ToList();
+        }
     }
 }

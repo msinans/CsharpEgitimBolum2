@@ -31,6 +31,10 @@
             this.dgvKullanicilar = new System.Windows.Forms.DataGridView();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtKullaniciEmail = new System.Windows.Forms.TextBox();
+            this.txtKullaniciSoyadi = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtKullaniciAdi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSil = new System.Windows.Forms.Button();
@@ -38,10 +42,6 @@
             this.btnEkle = new System.Windows.Forms.Button();
             this.txtKullaniciTCNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtKullaniciSoyadi = new System.Windows.Forms.TextBox();
-            this.txtKullaniciEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKullanicilar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             this.txtAra.Name = "txtAra";
             this.txtAra.Size = new System.Drawing.Size(222, 20);
             this.txtAra.TabIndex = 13;
+            this.txtAra.TextChanged += new System.EventHandler(this.txtAra_TextChanged);
             // 
             // groupBox1
             // 
@@ -82,12 +83,44 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kullanıcı Bilgileri";
             // 
+            // txtKullaniciEmail
+            // 
+            this.txtKullaniciEmail.Location = new System.Drawing.Point(122, 139);
+            this.txtKullaniciEmail.Name = "txtKullaniciEmail";
+            this.txtKullaniciEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtKullaniciEmail.TabIndex = 5;
+            // 
+            // txtKullaniciSoyadi
+            // 
+            this.txtKullaniciSoyadi.Location = new System.Drawing.Point(122, 101);
+            this.txtKullaniciSoyadi.Name = "txtKullaniciSoyadi";
+            this.txtKullaniciSoyadi.Size = new System.Drawing.Size(100, 20);
+            this.txtKullaniciSoyadi.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(42, 146);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Email:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(42, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Soyad:";
+            // 
             // txtKullaniciAdi
             // 
             this.txtKullaniciAdi.Location = new System.Drawing.Point(122, 64);
             this.txtKullaniciAdi.Name = "txtKullaniciAdi";
             this.txtKullaniciAdi.Size = new System.Drawing.Size(100, 20);
-            this.txtKullaniciAdi.TabIndex = 8;
+            this.txtKullaniciAdi.TabIndex = 3;
             // 
             // label2
             // 
@@ -104,9 +137,10 @@
             this.btnSil.Location = new System.Drawing.Point(264, 194);
             this.btnSil.Name = "btnSil";
             this.btnSil.Size = new System.Drawing.Size(75, 23);
-            this.btnSil.TabIndex = 6;
+            this.btnSil.TabIndex = 8;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnGuncelle
             // 
@@ -114,16 +148,17 @@
             this.btnGuncelle.Location = new System.Drawing.Point(137, 194);
             this.btnGuncelle.Name = "btnGuncelle";
             this.btnGuncelle.Size = new System.Drawing.Size(75, 23);
-            this.btnGuncelle.TabIndex = 5;
+            this.btnGuncelle.TabIndex = 7;
             this.btnGuncelle.Text = "Güncelle";
             this.btnGuncelle.UseVisualStyleBackColor = true;
+            this.btnGuncelle.Click += new System.EventHandler(this.btnGuncelle_Click);
             // 
             // btnEkle
             // 
             this.btnEkle.Location = new System.Drawing.Point(6, 194);
             this.btnEkle.Name = "btnEkle";
             this.btnEkle.Size = new System.Drawing.Size(75, 23);
-            this.btnEkle.TabIndex = 4;
+            this.btnEkle.TabIndex = 6;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
             this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
@@ -144,38 +179,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "TC No:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Soyad:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 146);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Email:";
-            // 
-            // txtKullaniciSoyadi
-            // 
-            this.txtKullaniciSoyadi.Location = new System.Drawing.Point(122, 101);
-            this.txtKullaniciSoyadi.Name = "txtKullaniciSoyadi";
-            this.txtKullaniciSoyadi.Size = new System.Drawing.Size(100, 20);
-            this.txtKullaniciSoyadi.TabIndex = 11;
-            // 
-            // txtKullaniciEmail
-            // 
-            this.txtKullaniciEmail.Location = new System.Drawing.Point(122, 139);
-            this.txtKullaniciEmail.Name = "txtKullaniciEmail";
-            this.txtKullaniciEmail.Size = new System.Drawing.Size(100, 20);
-            this.txtKullaniciEmail.TabIndex = 12;
-            // 
             // KullaniciYonetimi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,6 +188,7 @@
             this.Controls.Add(this.txtAra);
             this.Controls.Add(this.dgvKullanicilar);
             this.Name = "KullaniciYonetimi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kullanıcı Yönetimi";
             this.Load += new System.EventHandler(this.KullaniciYonetimi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKullanicilar)).EndInit();
