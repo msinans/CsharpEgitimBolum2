@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Data\DatabaseContext.cs" />
     <Compile Include="Entities\Kategori.cs" />
+    <Compile Include="Entities\Kullanici.cs" />
     <Compile Include="Entities\Marka.cs" />
     <Compile Include="Entities\Urun.cs" />
     <Compile Include="Form1.cs">
@@ -73,6 +74,12 @@
     <Compile Include="KategoriYonetimi.Designer.cs">
       <DependentUpon>KategoriYonetimi.cs</DependentUpon>
     </Compile>
+    <Compile Include="KullaniciYonetimi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KullaniciYonetimi.Designer.cs">
+      <DependentUpon>KullaniciYonetimi.cs</DependentUpon>
+    </Compile>
     <Compile Include="MarkaYonetimi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KategoriYonetimi.resx">
       <DependentUpon>KategoriYonetimi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KullaniciYonetimi.resx">
+      <DependentUpon>KullaniciYonetimi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MarkaYonetimi.resx">
       <DependentUpon>MarkaYonetimi.cs</DependentUpon>

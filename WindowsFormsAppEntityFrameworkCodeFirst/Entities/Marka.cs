@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace WindowsFormsAppEntityFrameworkCodeFirst.Entities
 {
     [Table("Markalar")] // veritabanında tablo adı markas yerine markalar olsun
-    public class Marka // Projemizdeki entities klasörüne sağ tıklayıp and class ile bu sınıfı ekledikten sonra property lerini tanımladık
+    public class Marka // Projemizdeki entities klasörüne sağ tıklayıp add class ile bu sınıfı ekledikten sonra property lerini tanımladık
     {
         public int Id { get; set; }
         public string Adi { get; set; }

@@ -11,6 +11,7 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst.Data
         public DbSet<Kategori> Kategoriler { get; set; } // Bu şekilde dbset ler tanımlamamız gerekli
         // DbSet lerimizi yazdıktan sonra proje içerisindeki App.config isimli dosyaya entity framework ün kullanacağı veritabanını tanımlayan bir connection string kkodu yazmamız gerekiyor
         public DbSet<Marka> Markalar { get; set; } // Bu db seti eklemezsek veritabanı işlemleri yapamayız.
-        // Bu aşamadan sonra projeye add new form diyerek markayonetim formu 
+        // Bu aşamadan sonra projeye add new form diyerek markayonetim formu yapmalıyız
+        public DbSet<Kullanici> Kullanicilar { get; set; }
     }
 }
