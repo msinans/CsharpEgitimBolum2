@@ -24,10 +24,10 @@
              <asp:ListItem>Telefon</asp:ListItem>
         </asp:DropDownList>
         <asp:FileUpload ID="FileUpload1" runat="server" />
-        <asp:HiddenField ID="HiddenField1" runat="server" Value="Gizli Değer" />
-        <asp:HyperLink ID="HyperLink1" runat="server"> Site Bağlantısı</asp:HyperLink>
-        <asp:Image ID="Image1" runat="server" Height="200px" ImageUrl="~/Images/Zühal nut.jpg" />
-        <asp:Label ID="Label1" runat="server" Text="Label ile ekranda yazı gözteriyoruz"></asp:Label>
+        <asp:HiddenField ID="HiddenField1" runat="server" Value="Gizli Değer" />       
+        Site Bağlantısı<asp:HyperLink ID="HYperLink1" runat="server"> Site Bağlantısı</asp:HyperLink>
+         <asp:Image ID="bmw4" runat="server" Height="250" ImageUrl="~/Images/bmw4.jpg" />
+        <asp:Label ID="Label1" runat="server" Text="Label ile ekranda yazı gösteriyoruz"></asp:Label>
     <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
     <asp:RadioButton ID="RadioButton1" runat="server" Text="Onaylıyorum" Height="100px" />
 
