@@ -8,7 +8,7 @@
     Anasayfa
     <br />
     HTML Elementleri
-    <h1>>h1 en büyük sayfa başlık elementidir.</h1>
+    <h1>h1 en büyük sayfa başlık elementidir.</h1>
     <h2>he elementi sayfada alt başlık oluşturmak için kullanılır</h2>
     <h3>h3 ise h2 nin alt başlığı olarak kullanılır</h3>
     <h4>h4 elementi biraz daha küçük başlık içerir</h4>
@@ -26,13 +26,13 @@
     <hr />
 
     <div>
-        hr elementi sayfada yatay çizgi çekilmesii sağlar.
+        hr elementi sayfada yatay çizgi çekilmesini sağlar.
         <br />
         br elementi ise satırdaki kendinden sonraki yazıyı alt satırdan devam ettirir
     </div>
 
     <h3>
-        a elementi ile saada link-bağlantı oluşturma
+        a elementi ile sayfada link-bağlantı oluşturma
     </h3>
 
     <a href="#">a elementi ile link oluşturmak için href in içine yazmalıyız</a>
@@ -70,6 +70,7 @@
             </td>
         </tr>
     </table>
+
 
     <table border="1">
         <tr>
@@ -115,17 +116,18 @@
     <table border="1">
         <caption>Caption ile tabloya başlık verebiliyoruz</caption>
         <tr>
-            <th rowspan="2">
+            <th rowspan="3">
                 Ürün Bilgleri:
             </th>
-        <tr>
+        </tr>
+            <tr>
            <th> Ürün Adı:</th>
            <td> Asus Laptop</td>
             </tr>
         <tr>
-            <th rowspan="2"> kodu ile kaç satırlık yükseklik lazımsa o değeri veriyoruz </th>
+            <th rowspan="2"> rowspan kodu ile kaç satırlık yükseklik lazımsa o değeri veriyoruz </th>
             <td>
-
+                <img src="/Images/bmw4.jpg" height="100" />
             </td>
         </tr>
     </table>
@@ -144,7 +146,8 @@
             <td colspan="2">
                 Burası colspan =2 koduyla 2 sütunluk yer kaplar satırda
             </td>
-    </table>
+        </tr>
+</table>
     <hr />
 
     <i>Html i elementi ile italik yani yana yatık yazılar yazdırılabilir</i>
@@ -217,8 +220,7 @@
                 <tr>
                     <td>
                     Şifre:
-                    </td>
-                    
+                    </td>                    
                     <td>
                         <input id="Password1" type="password" />
                     </td>
@@ -235,7 +237,7 @@
     <h2>Semantik html5 elmentleri</h2>
     
     <header>
-        Web sayalarında üst bölümü bu kodlar içerisinde yazmamız önerilir.
+        Web sayfalarında üst bölümü bu kodlar içerisinde yazmamız önerilir.
         <nav>
             nav elementi içerisinde genelde syfada kullanılacak menü kodları (ul li a) yer alır
         </nav>
