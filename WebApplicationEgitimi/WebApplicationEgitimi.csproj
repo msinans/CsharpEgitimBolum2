@@ -67,9 +67,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CssEgitimi\Css01Giris.html" />
+    <Content Include="CssEgitimi\Css02ArkaPlanlar.html" />
     <Content Include="Global.asax" />
+    <Content Include="HariciCss.css" />
     <Content Include="Images\BMW Gran Coupe.jpg" />
     <Content Include="Images\bmw4.jpg" />
+    <Content Include="Images\google logo.png" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
