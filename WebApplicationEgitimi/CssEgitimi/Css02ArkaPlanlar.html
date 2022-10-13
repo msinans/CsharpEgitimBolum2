@@ -39,37 +39,67 @@
         <h3>CSS arka plan tekrarı</h3>
 
         <p>
-            Css ile html elemanlarına arkaplan resimleri ekleyebiliriz.</p>
+            Css ile html elemanlarına arkaplan resimleri ekleyebiliriz.
+        </p>
         <p>
             Bunun için yazmamız gereken kod şudur: background-image: url("arkaplan.gif");
         </p>
-        </div>
+    </div>
 
-            <hr />
+    <hr />
 
-            <div style="background-image: url('/Images/google logo.png'); background-repeat:no-repeat; height: 200px; ">
+    <div style="background-image: url('/Images/google logo.png'); background-repeat:no-repeat; height: 200px; ">
 
-                <h3>CSS arkaplan tekrarı</h3>
+        <h3>CSS arkaplan tekrarı</h3>
 
-                <p>CSS ile html elemanlarına arkaplan resmi ekleyebiliriz</p>
+        <p>CSS ile html elemanlarına arkaplan resmi ekleyebiliriz</p>
 
-                <p>
+        <p>
 
-                    background-repeat özelliği ile resim tekrarını yatayda, dikeyde veya tekrar etmeyacak şekilde ayarlayabiliriz
+            background-repeat özelliği ile resim tekrarını yatayda, dikeyde veya tekrar etmeyacak şekilde ayarlayabiliriz
         </p>
-        
+
         <ol>
             <li>background-repeat: repeat-y; arkaplan resmini dikeyde tekrar et</li>
             <li>background-repeat: repeat-x; arkaplan resmini yatayda tekrar et</li>
             <li>background-repeat: repeat: no-repeat; arkaplan resmini tekrar etme!</li>
         </ol>
-        </div>
+    </div>
     <hr />
-    <div style="background-image: url('/Images/google logo.png'); background-repeat: no-repeat; height: 200px; ;">
+    <div style="background-image: url('/Images/google logo.png'); background-repeat: no-repeat; background-position: center center; height: 200px;;">
         <h3>CSS arkaplan konumu </h3>
 
         <p>Css ile html elemanlarına arkaplan resimleri ekleyebiliriz</p>
+        <p>
+            Bunun için yazmamız gereken kod şudur: background-image: url("arkaplan.gif");
+            <br />
+            Arkaplan resminin pozisyonunu ayarlamak için gerekli kod: background-position : right top;
+            (center bottom, sadece center, left center,  veya
+            background-position: 18px 58px; pixellerle de ayarlayabiliriz.
+        </p>
     </div>
+
+    <hr />
+
+    <div style="background-image: url('/Images/google logo.png'); background-attachment: fixed; background-repeat: no-repeat; background-position: center bottom; height: 500px;;">
+        <h3>CSS Arkaplan Sabitleme</h3>
+
+        <p>
+            Arkaplan resminin kaydırılması mı yoksa sabit mi olması gerektiğini belirtir
+        </p>
+
+        <p>
+            Eğer sayfa aşağı kaydırıldığında resmin sabit kalmasını istersek şu kodu eklemeliyiz : background-attachment: fixed;
+        </p>
+        
+    </div>
+    <hr />
+
+    <div style="background: #fff url('/Images/google logo.png')no-repeat fixed center bottom; height: 500px;">
+        background: #fff url('/Images/google logo.png')no-repeat fixed center bottom; kodu ile tek satırda tüm arkaplan işlemlerii halledebiliriz.
+
+    </div>
+
 
 </body>
 </html>
