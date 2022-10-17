@@ -77,9 +77,11 @@
     <Content Include="CssEgitimi\Css08FloatOzelligi.html" />
     <Content Include="Global.asax" />
     <Content Include="HariciCss.css" />
+    <Content Include="Images\aritsuLogo.jpg" />
     <Content Include="Images\BMW Gran Coupe.jpg" />
     <Content Include="Images\bmw4.jpg" />
     <Content Include="Images\google logo.png" />
+    <Content Include="Images\googleLogo.jpg" />
     <Content Include="index.html" />
     <Content Include="MiniSite\index.html" />
     <Content Include="MiniSite\stil.css" />
