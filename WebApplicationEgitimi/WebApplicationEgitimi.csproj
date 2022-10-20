@@ -83,6 +83,13 @@
     <Content Include="Images\google logo.png" />
     <Content Include="Images\googleLogo.jpg" />
     <Content Include="index.html" />
+    <Content Include="JavascriptEgitimi\Konu01JavascriptGiris.html" />
+    <Content Include="JavascriptEgitimi\Konu02JsMatematikselislemler.html" />
+    <Content Include="JavascriptEgitimi\Konu03KararYapilari.html" />
+    <Content Include="JavascriptEgitimi\Konu04Operatörler.html" />
+    <Content Include="JavascriptEgitimi\Konu05Donguler.html" />
+    <Content Include="JavascriptEgitimi\Konu06SwitchCase.html" />
+    <Content Include="JavascriptEgitimi\Konu07Fonksiyonlar.html" />
     <Content Include="MiniSite\index.html" />
     <Content Include="MiniSite\stil.css" />
     <Content Include="Web.config" />
