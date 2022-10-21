@@ -47,6 +47,8 @@
         }
     </script>
 
+    <hr />
+
     <h3>Örnek 3 - Onclick Confirm Olayı </h3>
 
     <p>
@@ -74,7 +76,7 @@
 
     <hr />
 
-    <h3>Örnek 4 - -onMouse Olayı</h3>
+    <h3>Örnek 4 - -onMouseOver Olayı</h3>
 
     <p>
         Ekrandaki herhangi bir elementin üzerine geldiğimizde gerçekleşen olaydır.
@@ -95,7 +97,7 @@
     <p>
         onBlur olayı ekrandaki bir elementin içinden ayrılınca gerçekleşir
     </p>
-    <input id="Text1" type="text" name="fokus" value="Burayı Tıkla" onfocus="this.value='Focus işlemi gerçekleşti'" onblur="this.value='Güle güle sevgi kelebeği'" />
+    <input id="Text1" type="text" name="fokus" value="Buraya Tıkla" onfocus="this.value='Focus işlemi gerçekleşti'" onblur="this.value='Güle güle sevgi kelebeği'" />
 
     <hr />
 
@@ -143,7 +145,7 @@
             }
             else {
                 alert("Kayıt Başarısısz! " + karakterSayisi + "Karakter Girdiniz. Tc No 11 karakter olmalıdır!");
-                event.preventDefault(); // preventDefault metodu formunn varsayılan işlemi olan submit olmasını engeller. 
+                event.preventDefault(); // preventDefault metodu formun varsayılan işlemi olan submit olmasını engeller. Bu olmasaydı girilen her kayıt işlenirdi.
             }
         }
     </script>
