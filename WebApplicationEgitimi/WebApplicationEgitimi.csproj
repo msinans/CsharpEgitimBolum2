@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BootstrapEgitimi\BootstrapOdev.html" />
     <Content Include="BootstrapEgitimi\Ders01Giris.html" />
     <Content Include="BootstrapEgitimi\Ders02SatirveSutunKullanimi.html" />
     <Content Include="BootstrapEgitimi\Ders03Hizalama.html" />
@@ -101,6 +102,7 @@
     <Content Include="CssEgitimi\Css08FloatOzelligi.html" />
     <Content Include="Global.asax" />
     <Content Include="HariciCss.css" />
+    <Content Include="Images\aritsuLogo %282%29.jpg" />
     <Content Include="Images\aritsuLogo.jpg" />
     <Content Include="Images\BMW Gran Coupe.jpg" />
     <Content Include="Images\bmw4.jpg" />
