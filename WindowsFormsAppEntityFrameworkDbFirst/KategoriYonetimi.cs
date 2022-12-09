@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppEntityFrameworkDbFirst
@@ -72,14 +66,14 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
                 MessageBox.Show("Kategori Adı Boş Geçilemez");
                 return;
             }
-                try
-             
+            try
+
             {
                 int secilenKayitId = Convert.ToInt32(dgvKategoriler.CurrentRow.Cells[0].Value);
                 var kayit = context.Kategoriler.Find(secilenKayitId);
                 kayit.KategoriAdi = txtKategoriAdi.Text;
                 kayit.Durum = cbDurum.Checked;
-               
+
                 var sonuc = context.SaveChanges();
 
                 if (sonuc > 0)
@@ -102,9 +96,9 @@ namespace WindowsFormsAppEntityFrameworkDbFirst
                 var kayit = context.Kategoriler.Find(secilenKayitId);
                 context.Kategoriler.Remove(kayit);
 
-                var sonuc = context.SaveChanges(); 
+                var sonuc = context.SaveChanges();
 
-                if (sonuc > 0) 
+                if (sonuc > 0)
                 {
                     dgvKategoriler.DataSource = context.Kategoriler.ToList();
                     MessageBox.Show("Kayıt Silindi");

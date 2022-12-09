@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppAdoNet
@@ -32,7 +25,7 @@ namespace WindowsFormsAppAdoNet
                     MarkaAdi = txtMarkaAdi.Text,
                     StokMiktari = Convert.ToInt32(txtStokMiktari.Text)
 
-            });
+                });
                 if (sonuc > 0)
                 {
                     MessageBox.Show("Kayıt Başarılı");

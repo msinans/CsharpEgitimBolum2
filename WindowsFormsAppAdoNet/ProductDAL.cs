@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 using System.Data; //Veritabanı işlemi için gerekli
 using System.Data.SqlClient; //AdoNet kütüphaneleri
-using System.Data.Common;
 
 namespace WindowsFormsAppAdoNet
 {
@@ -23,7 +22,7 @@ namespace WindowsFormsAppAdoNet
             List<Product> urunListesi = new List<Product>(); // Geriye döndüreceğimiz boş bir List<Product> nesnesi oluşturduk.
             SqlCommand command = new SqlCommand("select * from Products", connection); // SqlCommand sql komutlarını çalıştırabilmemizi sağlayan ado net sınıfıdır. Tırnaklar içerisinie sql komutumuzu, sonraki parametrede de bu komutun çalıştıracağı connection nesnesini belirtiyoruz.
             SqlDataReader reader = command.ExecuteReader(); // SqlDataReader Sql veri okuyucu sınıfıdır, bu sınıfa üstteki command nesnesini ExecuteReader metoduyla çalıştırmasını söyledik.
-            while(reader.Read()) // reader db de okuyacak kayıt bulduğu sürece 
+            while (reader.Read()) // reader db de okuyacak kayıt bulduğu sürece 
             {
                 Product product = new Product() //Döngü her döndüğünde içi boş yeni ürün oluşturuyoruz
                 {
@@ -71,19 +70,19 @@ namespace WindowsFormsAppAdoNet
             SqlDataReader reader = command.ExecuteReader();
             Product product = new Product();
 
-            while(reader.Read())
+            while (reader.Read())
             {
                 product.Id = Convert.ToInt32(reader["Id"]);
                 product.UrunAdi1 = reader["UrunAdi"].ToString();
                 product.StokMiktari1 = Convert.ToInt32(reader["StokMiktari"]);
                 product.UrunFiyati1 = Convert.ToDecimal(reader["UrunFiyati"]);
             }
-            reader.Close(); 
-            command.Dispose(); 
-            connection.Close(); 
-           
+            reader.Close();
+            command.Dispose();
+            connection.Close();
+
             return product;
-          
+
         }
         public int Update(Product product)
         {

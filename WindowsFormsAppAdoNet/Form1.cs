@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Configuration;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppAdoNet
@@ -18,7 +10,7 @@ namespace WindowsFormsAppAdoNet
             InitializeComponent();
         }
         ProductDAL productDAL = new ProductDAL(); // Veritabanı işlemleri olduğu sınıfı tanımladık
-        
+
         private void Form1_Load_1(object sender, EventArgs e)
         {
             //dgvUrunler.DataSource = productDAL.GetAll(); // Form ön yüzdeki dgvUrunler nesnesine productDAL içindeki GetAll metodu ile ürünleri yüklettik
@@ -48,7 +40,7 @@ namespace WindowsFormsAppAdoNet
                 //MessageBox.Show("Hata Oluştu!\nGeçersiz Değer Girdiniz");
                 MessageBox.Show(hata.Message);
             }
-            
+
         }
         // Ekleme işleminden sonraki işlemimiz, griedview den kayıt seçip seçilen kaydın bilgilerini tetboxlara doldurmak. Bunun için griedview ın events (olaylar) kısmında cell click olayını etkinleştirmemiz lazım.   Gried e sağ tık yapıp  properties e tıklatp açılan pencereden şimşek ikonuna tıklayıp oradan cellclick kutucuğuna mouse ile çift tıklayarak bu olayı aktifleştiriyoruz.
         private void dgvUrunler1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -68,37 +60,37 @@ namespace WindowsFormsAppAdoNet
             txtUrunFiyati1.Text = product.UrunFiyati1.ToString();
             btnGuncelle.Enabled = true; // listeden katıt seçildiğinde butonu aktif et
             btnSil.Enabled = true; // sil butonunu aktif et
- 
+
         }
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
 
             try
-                {
-                    
-                    Product product = new Product(); // boş bir product nesnesi oluşturduk
-                    product.StokMiktari1 = Convert.ToInt32(txtStokMiktari1.Text);
-                    product.UrunAdi1 = txtUrunAdi1.Text;
-                    product.UrunFiyati1 = Convert.ToDecimal(txtUrunFiyati1.Text);
-                    product.Id = Convert.ToInt32(dgvUrunler1.CurrentRow.Cells[0].Value);
-                    var islemSonucu = productDAL.Update(product); // Add metoduna product ı eklemesi için gönderdik
+            {
 
-                    if (islemSonucu > 0)
-                    {
-                        dgvUrunler1.DataSource = productDAL.GetAllDataTable(); // Data grid view de eklenen son kaydı da görebilmek için  bu kodu yazdık
-                        MessageBox.Show("Kayıt Başarılı");
-                    }
-                    else MessageBox.Show("Kayıt Başarısız");
-                }
-                catch (Exception hata)
+                Product product = new Product(); // boş bir product nesnesi oluşturduk
+                product.StokMiktari1 = Convert.ToInt32(txtStokMiktari1.Text);
+                product.UrunAdi1 = txtUrunAdi1.Text;
+                product.UrunFiyati1 = Convert.ToDecimal(txtUrunFiyati1.Text);
+                product.Id = Convert.ToInt32(dgvUrunler1.CurrentRow.Cells[0].Value);
+                var islemSonucu = productDAL.Update(product); // Add metoduna product ı eklemesi için gönderdik
+
+                if (islemSonucu > 0)
                 {
+                    dgvUrunler1.DataSource = productDAL.GetAllDataTable(); // Data grid view de eklenen son kaydı da görebilmek için  bu kodu yazdık
+                    MessageBox.Show("Kayıt Başarılı");
+                }
+                else MessageBox.Show("Kayıt Başarısız");
+            }
+            catch (Exception hata)
+            {
 
                 //MessageBox.Show("Hata Oluştu!\nGeçersiz Değer Girdiniz!");
                 MessageBox.Show(hata.Message);
             }
 
-            
+
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -108,7 +100,7 @@ namespace WindowsFormsAppAdoNet
                 var islemSonucu = productDAL.Delete(dgvUrunler1.CurrentRow.Cells[0].Value.ToString());
                 if (islemSonucu > 0)
                 {
-                    dgvUrunler1.DataSource = productDAL.GetAllDataTable(); 
+                    dgvUrunler1.DataSource = productDAL.GetAllDataTable();
                     MessageBox.Show("Silme Başarılı");
                 }
                 else MessageBox.Show("Silme Başarısız");

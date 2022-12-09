@@ -1,7 +1,7 @@
 
 namespace WindowsFormsAppEntityFrameworkDbFirst
 {
-       
+
     public partial class Kategoriler
     {
         public int Id { get; set; }

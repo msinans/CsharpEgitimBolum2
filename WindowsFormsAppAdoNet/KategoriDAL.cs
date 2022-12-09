@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;          // Veritabanı ilemleriiçin gerekli
 using System.Data.SqlClient; // Adonet kütüphaneleri
-using System.Security;
 
 namespace WindowsFormsAppAdoNet
 {
@@ -45,7 +43,7 @@ namespace WindowsFormsAppAdoNet
         public Kategori Get(string id)
         {
             ConnectionKontrol();
-            SqlCommand command = new SqlCommand("select * from Kategoriler where Id = " + id, connection); 
+            SqlCommand command = new SqlCommand("select * from Kategoriler where Id = " + id, connection);
             SqlDataReader reader = command.ExecuteReader();
             Kategori kategori = new Kategori();
 
@@ -55,7 +53,7 @@ namespace WindowsFormsAppAdoNet
                 kategori.KategoriAdi = reader["KategoroAdi"].ToString();
                 kategori.Durum = Convert.ToBoolean(reader["Durum"]);
             }
-            
+
             reader.Close(); //Veri okucuyu kapat
             command.Dispose(); // sql komut nesnesini kapat 
             connection.Close(); //veritabanı bağlantısını kapat

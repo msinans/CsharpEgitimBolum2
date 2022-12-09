@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO; // dosya işlemleri için gerekli kütüphane
+﻿using System.IO; // dosya işlemleri için gerekli kütüphane
 using System.Web;
 using System.Web.Mvc;
 
@@ -35,7 +33,7 @@ namespace AspNetFrameworkMVC.Controllers
 
                     //dosya.SaveAs(yol);
 
-                    // 3. Yönetm - Resmi direk sunucuya yollama
+                    // 3. Yöntem - Resmi direk sunucuya yollama
                     dosya.SaveAs(Server.MapPath("/Images/" + dosya.FileName));
 
                     ViewBag.ResimAdi = dosya.FileName;

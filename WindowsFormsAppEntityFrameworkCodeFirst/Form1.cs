@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 using WindowsFormsAppEntityFrameworkCodeFirst.Data;
 using WindowsFormsAppEntityFrameworkCodeFirst.Entities;
@@ -52,8 +46,8 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
             }
         }
 
-       
-        
+
+
         private void dgvUrunler1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -75,7 +69,7 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
                 MessageBox.Show("Hata Oluştu!" + hata.Message);
             }
         }
-         private void btnGuncelle_Click(object sender, EventArgs e)
+        private void btnGuncelle_Click(object sender, EventArgs e)
         {
             try
             {
@@ -83,8 +77,8 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
                 var kayit = context.Urunler.Find(id);
 
                 kayit.Adi = txtUrunAdi1.Text;
-                kayit.Fiyati= Convert.ToDecimal(txtUrunFiyati1.Text);
-                kayit.Stok= Convert.ToInt32(txtStokMiktari1.Text);
+                kayit.Fiyati = Convert.ToDecimal(txtUrunFiyati1.Text);
+                kayit.Stok = Convert.ToInt32(txtStokMiktari1.Text);
 
                 var sonuc = context.SaveChanges();
                 if (sonuc > 0)
@@ -126,7 +120,7 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
 
         private void btnAra_Click(object sender, EventArgs e)
         {
-            dgvUrunler1.DataSource = context.Urunler.Where(u=>u.Adi.Contains(txtAra.Text)).ToList();
+            dgvUrunler1.DataSource = context.Urunler.Where(u => u.Adi.Contains(txtAra.Text)).ToList();
         }
     }
 }

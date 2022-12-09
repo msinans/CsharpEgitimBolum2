@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace AspNetFrameworkMVC.Controllers
 {
@@ -10,7 +6,7 @@ namespace AspNetFrameworkMVC.Controllers
     {
         // GET: MVC03DataTransfer
         public ActionResult Index(string txtAra)
-        {   
+        {
             // MVC de temel olarak 3 türde view a veri yollama yapısı var
             // Örneğin veritabanında ürün bilgisini çekip ekrana yollamak için
 

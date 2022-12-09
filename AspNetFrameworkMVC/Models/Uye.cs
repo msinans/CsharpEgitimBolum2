@@ -1,6 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations; // Validation işlemleri çin gerekli kütüphane
-using System;
-using System.Web.ModelBinding;
+﻿using System;
+using System.ComponentModel.DataAnnotations; // Validation işlemleri çin gerekli kütüphane
 
 namespace AspNetFrameworkMVC.Models
 {

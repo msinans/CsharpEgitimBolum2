@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppAdoNet
@@ -29,13 +22,13 @@ namespace WindowsFormsAppAdoNet
                 int sonuc = kategoriDAL.Add(new Kategori
                 {
                     KategoriAdi = txtKategoriAdi.Text,
-                    Durum = cbDurum.Checked              
+                    Durum = cbDurum.Checked
                 });
                 if (sonuc > 0)
-                { 
+                {
                     dgvKategoriler.DataSource = kategoriDAL.GetAllDataTable();
                     MessageBox.Show("Kayıt Başarılı");
-                   
+
                 }
                 else MessageBox.Show("Kayıt Başarısız");
             }

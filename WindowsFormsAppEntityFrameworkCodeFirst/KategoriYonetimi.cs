@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsAppEntityFrameworkCodeFirst.Data;
 using WindowsFormsAppEntityFrameworkCodeFirst.Entities;
@@ -18,7 +13,7 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
         {
             InitializeComponent();
         }
-        DatabaseContext context= new DatabaseContext();
+        DatabaseContext context = new DatabaseContext();
         private void KategoriYonetimi_Load(object sender, EventArgs e)
         {
             dgvKategoriler.DataSource = context.Kategoriler.ToList();
@@ -73,7 +68,7 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
             try
             {
                 int id = Convert.ToInt32(dgvKategoriler.CurrentRow.Cells[0].Value);
-                Kategori kategori = context.Kategoriler.FirstOrDefault(k=>k.Id == id); // FirstOrDefault metodu kendisine gönderilen soruya ait kaydı veritabanından bulur. 
+                Kategori kategori = context.Kategoriler.FirstOrDefault(k => k.Id == id); // FirstOrDefault metodu kendisine gönderilen soruya ait kaydı veritabanından bulur. 
                 kategori.Adi = txtKategoriAdi.Text;
                 kategori.Durum = cbDurum.Checked;
 
@@ -114,7 +109,7 @@ namespace WindowsFormsAppEntityFrameworkCodeFirst
 
         private void txtAra_TextChanged(object sender, EventArgs e)
         {
-            dgvKategoriler.DataSource = context.Kategoriler.Where(k=>k.Adi.Contains(txtAra.Text)).ToList();
+            dgvKategoriler.DataSource = context.Kategoriler.Where(k => k.Adi.Contains(txtAra.Text)).ToList();
         }
     }
 }
