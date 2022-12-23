@@ -22,13 +22,13 @@ namespace AspNetFrameworkMVC.Controllers
             return View();
         }
         [HttpPost]  // aşağıdaki metodun sadece post yönteminde çalışmasını sağlar
-        public ActionResult Index(string text1, string ddListe, bool cbOnay, FormCollection formCollection)
+        public ActionResult Index(string text1, string ddListe, bool cbOnay, FormCollection formCollection )
         {
             // 1. yöntem parametrelerden gelen veriler;
 
             ViewBag.Mesaj = "Textboxtan gelen veri : " + text1;
             ViewBag.Mesajliste = "Listeden seçilen değer :" + ddListe;
-            TempData["Tdata"] = "Checkbox dan seçilen değer : " + cbOnay;
+            TempData["Tdata"] = "Checkbox dan seçilen değer : " + cbOnay; 
 
             // 2. Yöntem Reqest Form ile Verileri Yakalama
 
